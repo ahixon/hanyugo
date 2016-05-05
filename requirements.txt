@@ -1,0 +1,42 @@
+Hanyu Go! Website Requirements
+
+Textbook
+	- pages are just markdown documents that contain
+	  text, and embeddable objects using custom tags
+
+	- users can mark off textbook pages as completed,
+	  as well as interacting with the objects embedded in
+	  them
+
+	- people can browse where-ever in the book
+	- things only get added to SRS when they're completed
+
+Cards
+	- same as hanlu project;
+	  each card would belong to a card group and have
+	  some card information
+
+	- should also be tied to language/interaction step
+	  for INPUT only
+
+	- for card content generation, obviously depends on
+	  language itself
+
+	- also allow self-score
+
+	= admin list view for cards
+	= stories for cards?
+		- provided, or users have to come up with own
+		- do users share these
+
+TTS would need to train deep network :(
+
+Audio player
+
+Sound-out activity
+	-> shows thing, presses next/ok/space bar completes subtask
+
+NOtifications
+	- forum
+	- email reminders
+	- completion of stuff; badges

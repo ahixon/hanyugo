@@ -1,0 +1,61 @@
+import expect from 'expect'
+import listenactivity from '../../reducers/listenactivity'
+
+describe('listen activity reducer', () => {
+  it('should handle initial state', () => {
+    expect(
+      listenactivity(undefined, {})
+    ).toEqual({
+      title: undefined,
+      questions: [],
+    })
+  })
+
+  it('should handle SET_TITLE', () => {
+    expect(
+      listenactivity({
+      title: undefined,
+      questions: {},
+    }, {
+        type: 'SET_TITLE',
+        title: 'Testing Title'
+      })
+    ).toEqual({
+      title: 'Testing Title',
+      questions: [],
+    })
+  })
+
+  it('should handle ADD_QUESTION', () => {
+    expect(
+      listenactivity({
+      title: undefined,
+      questions: {},
+    }, {
+        type: 'APPEND_QUESTION',
+
+        question: {
+          front: {
+            headline: 'zài',
+            subtitle: '在',
+            audio: 'test.wav'
+          },
+          back: {}
+        }
+      })
+    ).toEqual({
+      title: undefined,
+      questions: [
+        { front: {
+            headline: 'zài',
+            subtitle: '在',
+            audio: 'test.wav'
+          },
+          back: {},
+          correct: false
+        }
+      ],
+    })
+  })
+
+})
