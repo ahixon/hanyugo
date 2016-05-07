@@ -1,0 +1,30 @@
+store: 
+- rename store layout so that content-> data is less weird
+- put id into each object
+
+tests:
+- fix actions for cards reducer
+- hook up to component
+- figure out whether to use Jest or Enzyme, then write some tests for the components (start with *Answer for now, since they're logic based not UI based, thus more important)
+
+reducers:
+- write new reducer for review; should handle:
+	- undo/redo
+	- removing card from review once done
+	- getting next card (perhaps merge into the one reducer action)
+	  this should check the card's schedule also?
+
+containers:
+- VocabCard should make questions not answerable once completed; should also probably
+  store score as dict not array to enforce this in data as well
+
+- FIX NAMING; card v review v etc.. it's all very confusing
+- once reducer is fixed, actually wire up to show next card
+- make sidebar clickable to change card
+- handle case of completed quiz
+
+components:
+- write audio component
+- fix styling
+
+??? FINISHED QUIZ PART ???
