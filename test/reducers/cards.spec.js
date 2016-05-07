@@ -20,7 +20,6 @@ describe('card reducer', () => {
           frontType: 'pinyin',
           backType: 'meaning',
 
-          id: 0,
           contentId: 0,
           groupId: 0,
 

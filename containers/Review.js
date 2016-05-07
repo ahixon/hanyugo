@@ -1,47 +1,37 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import cards from '../reducers/cards.js'
+import Card, { CardDebug } from './card'
+import { addCard } from '../actions'
 
-let Review = ({ cards, test }) => (
+let Review = ({ gotUserResponse, cards, currentCardIds }) => (
   <div>
-  <ul>
-    {cards.map(card =>
-      <li key={card.contentId}>{card.front}</li>
-    )}
-  </ul>
+    <div style={{ float: 'right', width: '50%', border: '1px solid #babdb6', 'overflowY': 'scroll', height: '300px' }}>
+      {currentCardIds.map (id =>
+        <div key={ id } style={{ padding: '1em', margin: '1em', border: '1px solid #eeeeec' }}>
+          <CardDebug id={ id } />
+        </div>
+      )}
+    </div>
 
-  <a href='#' onClick={ test }>Test it</a>
+    <div style={{ width: '50%', height: '300px' }}>
+      <p>ReviewResponseStatus here</p>
+      <Card id='0' onCompleted={ gotUserResponse } />
+      <a href='#'>Give up</a>
+    </div>
   </div>
 )
 
 const mapStateToProps = (state) => {
-  console.log ('have state', state);
   return {
-    cards: Object.values(state.cards)
+    currentCardIds: state.review.current.cardIds
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    test: () => {
-      console.log ('hey!');
-
-      dispatch ({
-        type: 'ADD_CARD',
-        card: {
-          frontType: 'pinyin',
-          backType: 'meaning',
-
-          id: 0,
-          contentId: 0,
-          groupId: 0,
-
-          front: ['hao'],
-          back: ['good']
-        }
-      })
-
-      return false;
+    gotUserResponse: () => {
+      console.log ('finished scoring card, yay! should change out card now');
     }
   }
 }

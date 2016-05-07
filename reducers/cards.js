@@ -3,8 +3,19 @@ export const STEP_INTERVALS = [
   60*10
 ];
 
-export const HARD = 3;
+// 5 - perfect response
+// 4 - correct response after a hesitation
+// 3 - correct response recalled with serious difficulty
+// 2 - incorrect response; where the correct one seemed easy to recall (aka "ah yeah could've gotten that damn it")
+// 1 - incorrect response; the correct one remembered (aka "oh yeeeeaaaaaaaah, that's right")
+// 0 - complete blackout. (aka "I had no idea")
+
+export const EASY = 5;
 export const GOOD = 4;
+export const HARD = 3;
+export const NEARLY = 2;
+export const KNEW_BUT_FORGOT = 1;
+export const NO_IDEA = 0; // primarily for "skip"
 
 const updateInterval = (reps, ef) => {
   if (reps <= 0 || !reps) {
@@ -36,16 +47,16 @@ const card = (state = {}, action) => {
       // TODO: create reviewlog; do this as another action?
       var step = state.step;
       switch (action.score) {
-        case 5:
-          // easy; graduate to review
+        case EASY:
+          // graduate to review
           step = -1
           break;
-        case 4:
-          // good; reduce step count
+        case GOOD:
+          // reduce step count
           step = Math.max (step - 1, -1)
           break;
-        case 3:
-          // hard; keep it where it was
+        case HARD:
+          // keep it where it was
           break;
         default:
           // wrong; max out step count
@@ -74,7 +85,7 @@ const card = (state = {}, action) => {
       // reschedule next due factors and time
       // only update ef/reps if we *were* a review card
       if (state.type == 'reviewing') {
-        if (action.score < 3) {
+        if (action.score < HARD) {
           // answer was wrong, reset repetition count
           repetitions = 0;
         } else {
@@ -133,8 +144,7 @@ const cards = (state = {}, action) => {
         interval: undefined
       });
 
-      const id = newCard.id;
-      delete newCard.id;
+      const id = action.id;
 
       return Object.assign({}, state, {
         [ id ]: newCard
