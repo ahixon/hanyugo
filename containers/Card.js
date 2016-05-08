@@ -67,11 +67,11 @@ Card = connect(
 
 export default Card
 
-let CardDebug = ({ id, card, content }) => {
+let CardDebug = ({ id, card, vocabData }) => {
   let info
 
   if (card.topic == 'vocab') {
-    info = <strong>{ card.content.back.join (' + ') } of { content.hanziSimp }</strong>
+    info = <strong>{ card.content.back.join (' + ') } of { vocabData.hanziSimp }</strong>
   } else {
     info = ''
   }
@@ -87,7 +87,7 @@ let CardDebug = ({ id, card, content }) => {
 const mapCardDebugStateToProps = (state, ownProps) => {
   return {
     card: state.cards[ownProps.id],
-    content: state.content.data[state.cards[ownProps.id].content.contentId]
+    vocabData: state.data.vocab[state.cards[ownProps.id].content.contentId]
   }
 }
 

@@ -1,7 +1,3 @@
-store: 
-- rename store layout so that content-> data is less weird
-- put id into each object
-
 tests:
 - fix actions for cards reducer
 - hook up to component
@@ -28,3 +24,13 @@ components:
 - fix styling
 
 ??? FINISHED QUIZ PART ???
+
+- then need some way to generate cards + content
+- which involves thinking about the user state + storage + async
+
+- then that's the hard part done and we can go back to textbook and content and activities.. :)
+
+# LOGO IDEAS
+
+superhero/comic book font/3d angled thing: HANYU GO!
+alternatively, the cute bubble thing, perhaps on two lines instead

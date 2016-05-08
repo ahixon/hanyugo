@@ -40,14 +40,14 @@ export default class VocabCard extends Component {
   }
 
   render() {
-    const { contentId, front, back, onCompleted, content } = this.props;
+    const { contentId, front, back, onCompleted, vocabData } = this.props;
     return (
       <div>
-      <h1>{front.map (type => <VocabQuestion content={ content } what={ type } /> )}</h1>
+      <h1>{front.map (type => <VocabQuestion content={ vocabData } what={ type } /> )}</h1>
 
       <hr />
 
-      {back.map (type => <VocabResponse content={ content } what={ type } onCompleted={ this.onCompletedSubtask.bind (this) } /> )}
+      {back.map (type => <VocabResponse content={ vocabData } what={ type } onCompleted={ this.onCompletedSubtask.bind (this) } /> )}
       </div>
     );
   }
@@ -55,7 +55,7 @@ export default class VocabCard extends Component {
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    content: state.content.data[ownProps.contentId]
+    vocabData: state.data.vocab[ownProps.contentId]
   }
 }
 
