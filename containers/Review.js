@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import cards from '../reducers/cards.js'
-import Card, { CardDebug } from './card'
+import cards from '../reducers/cards'
+import Card, { CardDebug } from './Card'
 import { addCard } from '../actions'
 
 let Review = ({ gotUserResponse, cards, currentCardIds }) => (
