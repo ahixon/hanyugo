@@ -1,6 +1,7 @@
 tests:
 - fix actions for cards reducer
-- hook up to component
+- hook up to component (ie change due date and stuff based on score received)
+- implement + think about cardgroups?
 - figure out whether to use Jest or Enzyme, then write some tests for the components (start with *Answer for now, since they're logic based not UI based, thus more important)
 
 reducers:
@@ -9,6 +10,8 @@ reducers:
 	- removing card from review once done
 	- getting next card (perhaps merge into the one reducer action)
 	  this should check the card's schedule also?
+
+- work out why webpack doesn't rebuild everything properly
 
 containers:
 - VocabCard should make questions not answerable once completed; should also probably
@@ -28,7 +31,7 @@ components:
 - then need some way to generate cards + content
 - which involves thinking about the user state + storage + async
 
-- then that's the hard part done and we can go back to textbook and content and activities.. :)
+- then that's the hard part done and we can go back to writing/implementing textbook and content and activities.. :)
 
 # LOGO IDEAS
 
