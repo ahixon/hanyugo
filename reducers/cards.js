@@ -6,8 +6,10 @@ export const STEP_INTERVALS = [
 // 5 - perfect response
 // 4 - correct response after a hesitation
 // 3 - correct response recalled with serious difficulty
-// 2 - incorrect response; where the correct one seemed easy to recall (aka "ah yeah could've gotten that damn it")
-// 1 - incorrect response; the correct one remembered (aka "oh yeeeeaaaaaaaah, that's right")
+// 2 - incorrect response; where the correct one seemed easy to recall 
+//     (aka "ah yeah could've gotten that damn it")
+// 1 - incorrect response; the correct one remembered
+//     (aka "oh yeeeeaaaaaaaah, that's right")
 // 0 - complete blackout. (aka "I had no idea")
 
 export const EASY = 5;
@@ -36,7 +38,7 @@ const updateInterval = (reps, ef) => {
 // all cards should be cleared of completed status on start of review
 const card = (state = {}, action) => {
   switch (action.type) {
-    case 'SCORE_CARD':
+    case 'CARD_SCORE':
       // wake up card
       var type = state.type == 'new' ? 'learning' : state.type;
 

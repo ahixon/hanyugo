@@ -91,7 +91,7 @@ const testStore = {
       groupId: 0,
 
       topic: 'vocab',
-      content: {
+      topicData: {
         contentId: 0,
         // rendered by VocabCard (has front/back), ActivityCard (front only), SentenceCard (comprehension [f/b]/reordering [f only])
         // Full text comphrension (ie stories) can be assembled by a Quiz containing Activities about the sentence
