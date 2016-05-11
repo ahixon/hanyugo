@@ -88,14 +88,14 @@ const testStore = {
   cards: {
     0: {
       id: 0,
-      groupId: 0,
 
-      topic: 'vocab',
-      topicData: {
+      type: 'vocab',
+      // VocabCard (has front/back), ActivityCard (front only), SentenceCard (comprehension [f/b]/reordering [f only])
+
+      data: {
         contentId: 0,
-        // rendered by VocabCard (has front/back), ActivityCard (front only), SentenceCard (comprehension [f/b]/reordering [f only])
         // Full text comphrension (ie stories) can be assembled by a Quiz containing Activities about the sentence
-        // Activites may or may not enable adding as an SRS card.
+        // Activites themselves may or may not enable adding as an SRS card.
         //
         // NB: pinyin/audio front ONLY is bad; must always be paired with another thing
         front: ['character', 'pinyin'], // pinyin, character
@@ -120,7 +120,14 @@ const testStore = {
         step: 0,
         interval: null
       }
-    }
+    },
+
+    contentIdToCardId: {
+      0: [0]
+    },
+
+    activityIdToCardId: {},
+    sentenceIdToCardId: {}
   }
 }
 
