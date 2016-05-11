@@ -8,7 +8,7 @@ const card = (state = {
 }, action) => {
   switch (action.type) {
     case 'SCHEDULE_UPDATE':
-      // TODO: create reviewlog; do this as another action?
+      // TODO: create reviewlog; do this as another reducer
       return Object.assign({}, state, {
         schedule: schedule (state.schedule, action)
       })
@@ -18,19 +18,17 @@ const card = (state = {
       })
     case 'CARD_SET_DATA':
       // ensure we have contentId for vocab
-      if (state.type == 'vocab' && !action.payload.contentId) {
-        console.warn ('missing contentId for vocab type in', action.payload);
+      if (state.type == 'vocab' && !action.payload.data.contentId) {
+        console.warn ('missing contentId for vocab type in', action.payload.data);
         return state;
       }
 
       return Object.assign({}, state, {
-        data: action.payload
+        data: action.payload.data
       })
     case 'CARD_ADD':
       // create from payload if provided
-      return Object.assign({}, action.payload ? action.payload : state, {
-        id: action.payload.id
-      })
+      return Object.assign({}, state, action.payload)
     default:
       return state
   }

@@ -1,17 +1,41 @@
-import card from './cards'
+import card from './card'
+
+const contentCardMap = (map, card, existingCard) => {
+  let newMap = map;
+
+  // delete
+  if (existingCard && existingCard.data && existingCard.data.contentId) {
+    newMap[existingCard.data.contentId] = newMap[existingCard.data.contentId].filter (oldId => { return oldId != existingCard.id })
+  }
+
+  // don't go further if we have nothing to add
+  if (!card.data || !card.data.contentId) {
+    return newMap;
+  }
+
+  const current = newMap[card.data.contentId] ? newMap[card.data.contentId] : [];
+
+  return Object.assign({}, newMap, {
+    [ card.data.contentId ]: [...current, card.id]
+  })
+}
 
 const cards = (state = {
   contentIdToCardId: {},
   // activityIdToCardId: {},
   // sentenceIdToCardId: {},
 }, action) => {
-  switch (action) {
-    const cardId = action.payload.id;
+  if (!action.type) {
+    return state;
+  }
 
+  const cardId = action.payload.id;
+
+  switch (action.type) {
     case 'CARD_ADD':
       return Object.assign({}, state, {
-        [ cardId ]: card (null, action)
-        contentIdToCardId: contentCardMap (state.contentIdToCardId, action.payload)
+        [ cardId ]: card (undefined, action),
+        contentIdToCardId: contentCardMap (state.contentIdToCardId, action.payload, state[cardId])
       })
     case 'CARD_SET_DATA':
       var contentIdToCardId = state.contentIdToCardId;
@@ -23,11 +47,16 @@ const cards = (state = {
         if (newContentId != oldContentId) {
           if (oldContentId) {
             // remove old one, which may not exist
-            contentIdToCardId[oldContentId] = contentIdToCardId[oldContentId].filter (someCardId => someCardId != cardId)
+            contentIdToCardId[oldContentId] = contentIdToCardId[oldContentId].filter (someCardId => { return someCardId != cardId })
           }
 
           // add new one
-          contentIdToCardId[newContentId].push (cardId);
+          // FIXME: is this okay? or is this mutating?
+          if (contentIdToCardId[newContentId]) {
+            contentIdToCardId[newContentId].push (cardId)
+          } else {
+            contentIdToCardId[newContentId] = [cardId]
+          }
         }
       }
 

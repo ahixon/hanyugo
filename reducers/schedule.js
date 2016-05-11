@@ -47,6 +47,10 @@ const schedule = (state = {
   step: 0,
   interval: null
 }, action) => {
+  if (!action) {
+    return state;
+  }
+  
   switch (action.type) {
     case 'SCHEDULE_UPDATE':
       var { repetitions, ef, interval, lapses, step, type } = state;
