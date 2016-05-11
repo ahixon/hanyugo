@@ -128,7 +128,7 @@ const schedule = (state = {
         next_due.setDate (action.payload.time.getDate() + interval);
       }
 
-      return {
+      let r = {
         type,
         step,
         repetitions,
@@ -138,6 +138,10 @@ const schedule = (state = {
         seen: state.seen + 1,
         ef
       }
+
+      console.log ('now', r)
+
+      return r
     default:
       return state
   }

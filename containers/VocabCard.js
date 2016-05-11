@@ -33,9 +33,11 @@ export default class VocabCard extends Component {
     this.setState({scores: newScores})
 
     if (newScores.length == this.props.back.length) {
+      console.log ('passing up')
       // if we finished everything, call up parent's onCompleted
-      this.setState ({completed: true})
       this.props.onCompleted (this.state.scores);
+      this.setState ({completed: true})
+      this.setState({scores: []})
     }
   }
 

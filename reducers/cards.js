@@ -85,7 +85,8 @@ const cards = (state = {
         [ cardId ]: card (state[cardId], action),
         contentIdToCardId
       })
-    SCHEDULE_UPDATE:
+    case 'SCHEDULE_UPDATE':
+      console.log ('update from cards')
       return Object.assign({}, state, {
         [ cardId ]: card (state[cardId], action)
       })

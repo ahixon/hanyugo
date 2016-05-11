@@ -54,11 +54,12 @@ export default class VocabResponse extends Component {
         took = 0
       }
 
-      console.log ('took')
+      console.log ('VocabResponse')
 
       // and mark based on correct/incorrect and time
       if (correct) {
-        onCompleted (textScore (correct, took, this.state.attempts));
+        // onCompleted (textScore (correct, took, this.state.attempts));
+        onCompleted (5)
         this.setState ({completed: true});
       } else {
         // after 3 wrong attempts, just move on

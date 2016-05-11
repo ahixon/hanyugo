@@ -9,6 +9,7 @@ const card = (state = {
   switch (action.type) {
     case 'SCHEDULE_UPDATE':
       // TODO: create reviewlog; do this as another reducer
+      console.log ('update from card')
       return Object.assign({}, state, {
         schedule: schedule (state.schedule, action)
       })

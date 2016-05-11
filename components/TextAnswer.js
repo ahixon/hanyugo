@@ -4,7 +4,7 @@
 
 import React, { Component, PropTypes } from 'react'
 
-let TextAnswer = ({placeholder, answers, onSubmit}) => {
+let TextAnswer = ({completed, placeholder, answers, onSubmit}) => {
   let input
 
   return (
@@ -24,6 +24,7 @@ let TextAnswer = ({placeholder, answers, onSubmit}) => {
     }}>
       <input type='text'
         placeholder={placeholder}
+        disabled={completed}
         ref={node => {
               input = node
             }}
