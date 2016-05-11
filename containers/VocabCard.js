@@ -43,11 +43,11 @@ export default class VocabCard extends Component {
     const { contentId, front, back, onCompleted, vocabData } = this.props;
     return (
       <div>
-      <h1>{front.map (type => <VocabQuestion content={ vocabData } what={ type } /> )}</h1>
+      <h1>{front.map ((type, idx) => <VocabQuestion key={ idx } content={ vocabData } what={ type } /> )}</h1>
 
       <hr />
 
-      {back.map (type => <VocabResponse content={ vocabData } what={ type } onCompleted={ this.onCompletedSubtask.bind (this) } /> )}
+      {back.map ((type, idx) => <VocabResponse key={ idx } content={ vocabData } what={ type } onCompleted={ this.onCompletedSubtask.bind (this) } /> )}
       </div>
     );
   }

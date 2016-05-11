@@ -29,7 +29,10 @@ const cards = (state = {
     return state;
   }
 
-  const cardId = action.payload.id;
+  let cardId
+  if (action.payload) {
+    cardId = action.payload.id;
+  }
 
   switch (action.type) {
     case 'CARD_ADD':
@@ -82,10 +85,12 @@ const cards = (state = {
         [ cardId ]: card (state[cardId], action),
         contentIdToCardId
       })
-    default:
+    SCHEDULE_UPDATE:
       return Object.assign({}, state, {
         [ cardId ]: card (state[cardId], action)
       })
+    default:
+      return state
   }
 }
 

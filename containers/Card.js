@@ -21,13 +21,13 @@ var average = arr => arr.reduce( ( p, c ) => p + c, 0 ) / arr.length;
 let Card = ({ card, onCompleted }) => {
   var objectRenderer
 
-  if (card.topic == 'activity') {
-    // objectRenderer = <ActivityCard onCompleted={this.props.onCompleted} id={ card.content } />
+  if (card.type == 'activity') {
+    // objectRenderer = <ActivityCard onCompleted={this.props.onCompleted} id={ card.data } />
     objectRenderer = <p>Have activity card.</p>
-  } else if (card.topic == 'vocab') {
-    objectRenderer = <VocabCard onCompleted={ onCompleted } {...card.content} />
+  } else if (card.type == 'vocab') {
+    objectRenderer = <VocabCard onCompleted={ onCompleted } {...card.data} />
   } else {
-    objectRenderer = <p>Unknown card type { card.topic }.</p>
+    objectRenderer = <p>Unknown card type { card.type }.</p>
   }
 
   return (
@@ -70,15 +70,15 @@ export default Card
 let CardDebug = ({ id, card, vocabData }) => {
   let info
 
-  if (card.topic == 'vocab') {
-    info = <strong>{ card.content.back.join (' + ') } of { vocabData.hanziSimp }</strong>
+  if (card.type == 'vocab') {
+    info = <strong>{ card.data.back.join (' + ') } of { vocabData.hanziSimp }</strong>
   } else {
     info = ''
   }
 
   return (
     <div>
-      <h3>Card #{ id }: { card.topic }</h3>
+      <h3>Card #{ id }: { card.type }</h3>
       { info }
     </div>
   )
@@ -87,7 +87,7 @@ let CardDebug = ({ id, card, vocabData }) => {
 const mapCardDebugStateToProps = (state, ownProps) => {
   return {
     card: state.cards[ownProps.id],
-    vocabData: state.data.vocab[state.cards[ownProps.id].content.contentId]
+    vocabData: state.data.vocab[state.cards[ownProps.id].data.contentId]
   }
 }
 

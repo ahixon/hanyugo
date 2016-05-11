@@ -6,7 +6,7 @@ const testStore = {
       currentCard: 0,
       prevCard: 0,
 
-      cardIds: [0], // current card is implicitly first one
+      cardIds: [0, 1], // current card is implicitly first one
       // log: [
       //   currentCard: 0,
       //   currentSchedule: { .. }
@@ -49,6 +49,26 @@ const testStore = {
         frame: null,
         strokeCount: 8
       },
+
+      1: {
+        id: 1,
+        levelTextbook: 0,
+        levelVocab: 0,
+        hanziSimp: '是',
+        hanziTrad: '是',
+
+        pinyin: ['shi'],
+
+        meaning: ['is'],
+        meaningAnswers: ['is', 'being'],
+
+        learnable: true,
+        info: null,
+        audio: 'shi.wav',
+
+        frame: null,
+        strokeCount: null
+      }
     },
 
     activities: {
@@ -119,7 +139,29 @@ const testStore = {
         type: 'new', // ('new', 'learning', 'reviewing', 'lapsed', 'completed')
         step: 0,
         interval: null
-      }
+      },
+    },
+
+    1: {
+      id: 1,
+      type: 'vocab',
+      data: {
+        contentId: 1,
+        front: ['meaning'],
+        back: ['pinyin'], 
+      },
+
+      schedule: {
+        nextDue: null,
+        repetitions: 0,
+        ef: 2.5,
+        seen: 0,
+        lapses: 0,
+
+        type: 'new',
+        step: 0,
+        interval: null
+      },
     },
 
     contentIdToCardId: {
