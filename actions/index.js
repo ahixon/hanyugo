@@ -6,3 +6,14 @@ export const addCard = (card) => {
     card
   }
 }
+
+export const scoreCard = (id, score, time) => {
+  return  {
+    type: 'SCHEDULE_UPDATE',
+    payload: {
+      id,
+      score,
+      time
+    }
+  }
+}

@@ -10,6 +10,14 @@ import { addCard } from './actions'
 import testStore from './storelayout'
 
 let store = createStore(hanyugoApp, testStore)
+store.dispatch({
+  type: 'REVIEW_BEGIN',
+  payload: {
+    id: 0,
+    cardIds: [0, 1],
+    time: new Date()
+  }
+})
 
 console.log (store.getState())
 

@@ -1,31 +1,6 @@
 //obj = {contentId, text} // - can use interpolation in text? why not just make text always interpolated? eg <Content id="">
 
 const testStore = {
-  review: {
-    current: {
-      currentCard: 0,
-      prevCard: 0,
-
-      cardIds: [0, 1], // current card is implicitly first one
-      // log: [
-      //   currentCard: 0,
-      //   currentSchedule: { .. }
-      //   prevCard: undefined,
-      // ],
-      //
-      // added to log prior to action completition, so that we know
-      // what card state to roll back to. cannot roll back first element,
-      // otherwise we lose initial state (unless stored elsewhere)
-
-      start: null,
-      finish: null
-    },
-
-    previous: []
-    // previous reviews; so we can see how long they were/what cards we were reviewing
-    // things get moved here once they have "finished"
-  },
-
   data: {
     vocab: {
       0: {

@@ -33,6 +33,7 @@ let Card = ({ card, onCompleted }) => {
   return (
     <div>
     { objectRenderer }
+    <a href='#'>Give up</a>
     </div>
   );
 }
@@ -52,12 +53,11 @@ const mapDispatchToProps = (dispatch, ownProps) => {
       console.log ('card score was', cardScore)
 
       // mark our score for this card, and reschedule if needed
-      // TODO: IMPLEMENT SCORING
-      // dispatch (scoreCard (ownProps.id, cardScore));
+      dispatch (scoreCard (ownProps.id, cardScore, new Date()))
 
-      // and call the parent to notify them to display the next one or whatever
-      console.log ('passing up to Review')
-      ownProps.onCompleted (cardScore);
+      if (ownProps.onCompleted !== undefined) {
+        ownProps.onCompleted (cardScore);
+      }
     }
   }
 }

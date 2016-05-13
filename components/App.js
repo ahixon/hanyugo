@@ -1,10 +1,10 @@
 import React from 'react'
-import Review from '../containers/Review'
+import ReviewContainer from '../containers/ReviewContainer'
 
 const App = () => (
   <div>
-  	<h1>Hanyu Go!</h1>
-    <Review />
+  	<h1>Hanyu Go! SRS Review Mode</h1>
+    <ReviewContainer />
   </div>
 )
 
