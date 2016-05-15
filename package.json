@@ -2,16 +2,16 @@
   "name": "hanyugo",
   "version": "0.0.0",
   "description": "Hanyu Go! Website",
+  "license": "UNLICENSED",
+  "private": true,
+
+  "respository": "gitlab:alexhixon/hanyugo",
+
   "scripts": {
     "start": "node server.js",
     "test": "cross-env NODE_ENV=test mocha --recursive --compilers js:babel-register --require ./test/setup.js",
     "test:watch": "cross-env NODE_ENV=test mocha --recursive --compilers js:babel-register --require ./test/setup.js --watch"
   },
-
-  "license": "UNLICENSED",
-  "private": true,
-
-  "respository": "gitlab:alexhixon/hanyugo",
 
   "dependencies": {
     "babel-polyfill": "^6.3.14",
@@ -20,6 +20,7 @@
     "react-redux": "^4.1.2",
     "redux": "^3.1.2"
   },
+
   "devDependencies": {
     "babel-core": "^6.3.15",
     "babel-loader": "^6.2.0",

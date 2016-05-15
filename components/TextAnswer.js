@@ -1,7 +1,3 @@
-// has a textbox, compared answer to what was typed
-// surely we can ONLY return true/false here
-// the scaling of the score must be done by parent
-
 import React, { Component, PropTypes } from 'react'
 
 export default class TextAnswer extends Component {
@@ -18,7 +14,7 @@ export default class TextAnswer extends Component {
       return
     }
 
-    var isCorrect = this.props.answers.some ((val) => {
+    let isCorrect = this.props.answers.some ((val) => {
       return val.toLowerCase() == this.state.response.toLowerCase();
     })
 

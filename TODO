@@ -1,3 +1,6 @@
+BUGS:
+- when looking at next card, need lookahead AND MUST do all non-review cards!
+
 tests:
 - write tests with [Enzyme with Mocha + Chai]
 
