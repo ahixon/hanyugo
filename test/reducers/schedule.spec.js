@@ -1,4 +1,4 @@
-import expect from 'expect'
+import { expect } from 'chai'
 import schedule, { NEARLY, HARD, GOOD, STEP_INTERVALS } from '../../reducers/schedule'
 
 describe ('schedule', () => {
@@ -27,7 +27,7 @@ describe ('schedule', () => {
           time: now,
         }
       })
-    ).toEqual({
+    ).to.eql({
       nextDue: exp,
       repetitions: 0,
       ef: 2.5,
@@ -74,7 +74,7 @@ describe ('schedule', () => {
           time: updated,
         }
       })
-    ).toEqual(justGraduated)
+    ).to.eql(justGraduated)
   });
 
   var finalDue = new Date(updated);
@@ -90,7 +90,7 @@ describe ('schedule', () => {
           time: updated,
         }
       })
-    ).toEqual({
+    ).to.eql({
       nextDue: finalDue,
       repetitions: 1,
       ef: 2.5,
@@ -116,7 +116,7 @@ describe ('schedule', () => {
           time: updated
         }
       })
-    ).toEqual ({
+    ).to.eql ({
       nextDue: lapsedDue,
       repetitions: 0,
       ef: 2.5,

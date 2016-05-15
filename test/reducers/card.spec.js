@@ -1,4 +1,4 @@
-import expect from 'expect'
+import { expect } from 'chai'
 import card from '../../reducers/card'
 import schedule from '../../reducers/schedule'
 
@@ -6,7 +6,7 @@ describe('card reducer', () => {
   it('should handle initial state', () => {
     expect(
       card(undefined, {})
-    ).toEqual({
+    ).to.eql({
       id: undefined,
       type: null,
       data: null,
@@ -25,7 +25,7 @@ describe('card reducer', () => {
         type: 'CARD_SET_TYPE',
         payload: 'vocab'
       })
-    ).toEqual({
+    ).to.eql({
       id: 4,
       type: 'vocab',
       data: {},
@@ -50,7 +50,7 @@ describe('card reducer', () => {
           }
         }
       })
-    ).toEqual({
+    ).to.eql({
       id: 4,
       type: 'vocab',
       data: { 

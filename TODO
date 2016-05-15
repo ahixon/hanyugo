@@ -1,5 +1,5 @@
 tests:
-- figure out whether to use Jest or Enzyme, then write some tests for the components (start with *Answer for now, since they're logic based not UI based, thus more important)
+- write tests with [Enzyme with Mocha + Chai]
 
 reducers:
 - write new reducer for review; should handle:

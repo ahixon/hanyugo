@@ -6,7 +6,7 @@
 // removing a card in the middle
 // Y adding a card that already exists; updates old card
 
-import expect from 'expect'
+import { expect } from 'chai'
 import cards from '../../reducers/cards'
 import schedule from '../../reducers/schedule'
 
@@ -14,7 +14,7 @@ describe('cards reducer', () => {
   it('should handle initial state', () => {
     expect(
       cards(undefined, {})
-    ).toEqual({
+    ).to.eql({
       contentIdToCardId: {}
     })
   })
@@ -27,7 +27,7 @@ describe('cards reducer', () => {
           id: 0
         }
       })
-    ).toEqual ({
+    ).to.eql ({
       0: {
         id: 0,
         type: null,
@@ -51,7 +51,7 @@ describe('cards reducer', () => {
           }
         }
       })
-    ).toEqual ({
+    ).to.eql ({
       1: {
         id: 1,
 
@@ -90,7 +90,7 @@ describe('cards reducer', () => {
           }
         }
       })
-    ).toEqual ({
+    ).to.eql ({
       1: {
         id: 1,
 
@@ -138,7 +138,7 @@ describe('cards reducer', () => {
           }
         }
       })
-    ).toEqual ({
+    ).to.eql ({
       1: {
         id: 1,
 
@@ -186,7 +186,7 @@ describe('cards reducer', () => {
           }
         }
       })
-    ).toEqual ({
+    ).to.eql ({
       1: {
         id: 1,
 
@@ -236,7 +236,7 @@ describe('cards reducer', () => {
           }
         }
       })
-    ).toEqual ({
+    ).to.eql ({
       1: {
         id: 1,
 
