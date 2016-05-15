@@ -35,7 +35,7 @@ export default class TextAnswer extends Component {
       <form onSubmit={ this.responseSubmit.bind (this) }>
         <input type='text'
           placeholder={ this.props.placeholder }
-          disabled={ this.props.disabled || this.state.correct }
+          disabled={ this.props.disabled }
           onInput={ this.responseChange.bind (this) }
           value={ this.state.response }
           />
