@@ -4,33 +4,44 @@
 
 import React, { Component, PropTypes } from 'react'
 
-let TextAnswer = ({completed, placeholder, answers, onSubmit}) => {
-  let input
+export default class TextAnswer extends Component {
+  state = {
+    response: '',
+    responded: false,
+    correct: false
+  }
 
-  return (
-    <form onSubmit={(e) => {
-      e.preventDefault()
+  responseSubmit(e) {
+    e.preventDefault()
 
-      if (!input.value.trim()) {
-        return
-      }
+    if (!this.state.response.trim()) {
+      return
+    }
 
-      var correct = answers.some ((val) => {
-        return val.toLowerCase() == input.value.toLowerCase();
-      })
+    var isCorrect = this.props.answers.some ((val) => {
+      return val.toLowerCase() == this.state.response.toLowerCase();
+    })
 
-      onSubmit (correct)
-      input.value = ''
-    }}>
-      <input type='text'
-        placeholder={placeholder}
-        disabled={completed}
-        ref={node => {
-              input = node
-            }}
+    this.props.onSubmit (isCorrect)
+    this.setState ({ correct: isCorrect, responded: true, response: '' })
+  }
+
+  responseChange (e) {
+    this.setState ({ response: e.target.value })
+  }
+
+  render() {
+    return (
+      <form onSubmit={ this.responseSubmit.bind (this) }>
+        <input type='text'
+          placeholder={ this.props.placeholder }
+          disabled={ this.props.disabled || this.state.correct }
+          onInput={ this.responseChange.bind (this) }
+          value={ this.state.response }
           />
-    </form>
-  )
+      </form>
+    )
+  }
 }
 
 export default TextAnswer
