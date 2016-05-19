@@ -18,7 +18,7 @@ let ReviewContainer = ({ prevReview, currentReview }) => {
   if (currentReview) {
     reviewElement = (<ActiveReview review={ currentReview } />)
   } else if (prevReview) {
-    reviewElement = (<p>Should show statistics</p>)
+    reviewElement = (<p>Review took { (prevReview.timeFinish - prevReview.timeStart)/1000 } seconds </p>)
   } else {
     reviewElement = (<p>No active review to do, nor any previous review to show statistics for.</p>)
   }

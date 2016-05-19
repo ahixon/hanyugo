@@ -26,30 +26,19 @@ export default class VocabCard extends Component {
 
   onCompletedSubtask(score) {
     // should return array of scores
-    console.log ('had score', score)
-    var newScores = [...this.state.scores, score]
-    console.log ('new scores', newScores)
-
-    this.setState({scores: newScores})
-
-    if (newScores.length == this.props.back.length) {
-      console.log ('passing up')
-      // if we finished everything, call up parent's onCompleted
-      this.props.onCompleted (this.state.scores);
-      this.setState ({completed: true})
-      this.setState({scores: []})
-    }
+    this.props.onCompleted (this.state.scores);
+    this.setState ({completed: true})
   }
 
   render() {
     const { contentId, front, back, onCompleted, vocabData } = this.props;
     return (
       <div>
-      <h1>{front.map ((type, idx) => <VocabQuestion key={ idx } content={ vocabData } what={ type } /> )}</h1>
+      <h1>{front.map ((type, idx) => <VocabQuestion key={ idx } content={ vocabData } what={ type } />)}</h1>
 
       <hr />
 
-      {back.map ((type, idx) => <VocabResponse key={ idx } content={ vocabData } what={ type } onCompleted={ this.onCompletedSubtask.bind (this) } /> )}
+      <VocabResponse content={ vocabData } what={ back } onCompleted={ this.onCompletedSubtask.bind (this) } />
       </div>
     );
   }

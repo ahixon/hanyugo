@@ -9,7 +9,7 @@ import React, { Component, PropTypes } from 'react'
 import TextAnswer from './TextAnswer'
 import UserAnswer from './UserAnswer'
 
-const textScore = (correct, took, attempts) => {
+const textScore = (correct, took) => {
   var scaled;
 
   if (correct) {
@@ -40,7 +40,6 @@ export default class VocabResponse extends Component {
 
     // TODO: handle other types! not just text!
     var onTextAttempt = (correct) => {
-      this.setState({attempts: this.state.attempts + 1})
       var now = new Date()
 
       // mark as started if that hasn't happened already

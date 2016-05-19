@@ -20,7 +20,7 @@ const review = (state = {
       })
     case 'REVIEW_END':
       return Object.assign({}, state, {
-        timeFinish: action.payload
+        timeFinish: action.payload.time
       })
     case 'REVIEW_ADD_CARDS':
       return Object.assign({}, state, {

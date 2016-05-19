@@ -16,8 +16,6 @@ import { connect } from 'react-redux'
 import { scoreCard } from '../actions'
 import VocabCard from './VocabCard'
 
-var average = arr => arr.reduce( ( p, c ) => p + c, 0 ) / arr.length;
-
 let Card = ({ card, onCompleted }) => {
   var objectRenderer
 
@@ -47,11 +45,6 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     onCompleted: (subscores) => {
-      // score for this card is average of all subtasks
-      // TODO: may want to cap to 2 if one of the scores was < 2?
-      const cardScore = average (subscores)
-      console.log ('card score was', cardScore)
-
       // mark our score for this card, and reschedule if needed
       dispatch (scoreCard (ownProps.id, cardScore, new Date()))
 

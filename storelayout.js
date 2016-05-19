@@ -94,14 +94,7 @@ const testStore = {
         //
         // NB: pinyin/audio front ONLY is bad; must always be paired with another thing
         front: ['character', 'pinyin'], // pinyin, character
-        back: ['meaning', 'audio'],
-
-        // if we have multiple back type, surely a reduction in ef means all other related
-        // cards in card group should have reduced ef? take avg? change ef by same amount
-        // and update intervals + dues?
-
-        // BETTER YET: cardGroup has own EF, and each card has own EF, and we take some
-        // weighted average of the two.
+        back: 'meaning',
       },
 
       schedule: {
