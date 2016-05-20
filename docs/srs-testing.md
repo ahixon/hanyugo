@@ -85,7 +85,7 @@ If we're without a touch screen device, then we wouldn't expect a user to draw w
 # Valid front/back combinations
 
 * Read hanzi -> Meaning, textual OR Read hanzi -> Meaning, media
-* Read hanzi -> Spoken (via shadowing/listen back; in future, neural nets?)
+* Read hanzi -> Spoken (via shadowing/listen back; in future, neural nets?) OR Pinyin with shadowing
 * Listening -> Write hanzi, touchpad OR Listening -> Write hanzi, multiple choice
 * Listening -> Meaning, textual OR Listening -> Meaning, media
 * Meaning, textual OR Meaning, media -> Spoken (via shadowing/listen back)
@@ -94,6 +94,7 @@ If we're without a touch screen device, then we wouldn't expect a user to draw w
 # Widgets needed
 
 * Read hanzi - HanziQuestion
+* Write pinyin - TextResponse (but PinyinAnswer)
 * Meaning, textual - TextQuestion
 * Meaning, textual - TextResponse (just a textbox; rename TextAnswer)
 * Meaning, media - MediaQuestion

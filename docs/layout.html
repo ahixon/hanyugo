@@ -1,0 +1,27 @@
+<Router path="/" component={BaseSite}>
+	<Router path="/review" component={BaseReview}>
+		<Router path="create" component={ReviewCreate}>
+		<Router path="next" component={ReviewNext}>
+		<Router path="view" component={ReviewList}>
+	</Router>
+</Router>
+
+ReviewCreate: note that only one review can be active at once for the user.
+ReviewNext is very similar to ActiveReview.
+ReviewList shows previous reviews; would have a subroute for ReviewStats.
+
+<ReviewNext>
+	<Card expandedProps -> processes score, renders GiveUp button>
+		<!-- for now, in future we can have ActivityCard, SentenceCard -->
+		<VocabCard -> takes score from below>
+			<!-- renders front and back -->
+			<div class='front'>
+				<div class='section-title'>Meaning</div>
+				<TextQuestion>good</TextQuestion>
+			</div>
+			<div class='back'>
+				<div class='section-title'>Meaning</div>
+			</div>
+		</VocabCard>
+	</Card>
+</ReviewNext>
